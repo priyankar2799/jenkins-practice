@@ -1,12 +1,16 @@
-pipeline {
-  agent {
-    docker { image 'python:latest' }
+pipeline{
+  agent{
+    docker{
+      image'python:3'
+    }
   }
-  stages {
-    stage('Build') {
-      steps {
-        sh 'print("hello world")'
-      }
+  stages{
+    stage('build, test and execute'){
+      sh ''' 
+          python --version
+          echo ' hello world!'
+      '''
     }
   }
 }
+      
